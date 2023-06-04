@@ -10,8 +10,7 @@ client.commands = new Collection()
 client.slashcommands = new Collection()
 client.commandaliases = new Collection()
 
-let token = config.token;
-const rest = new REST({ version: '10' }).setToken(token);
+const rest = new REST({ version: '10' }).setToken(process.env.BOT_TOKEN);
 
 const commands = []
 readdirSync('./src/commands/normal').forEach(async file => {

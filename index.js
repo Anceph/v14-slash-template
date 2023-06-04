@@ -1,8 +1,8 @@
 import { Client, Partials, GatewayIntentBits, Collection } from "discord.js";
-import config from "./src/config.js";
 import { readdirSync } from "fs";
 import { REST } from '@discordjs/rest';
 import { Routes } from 'discord-api-types/v10';
+import 'dotenv/config'
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMessageReactions, GatewayIntentBits.GuildMessageTyping, GatewayIntentBits.DirectMessages, GatewayIntentBits.DirectMessageReactions, GatewayIntentBits.DirectMessageTyping, GatewayIntentBits.MessageContent], shards: "auto", partials: [Partials.Message, Partials.Channel, Partials.GuildMember, Partials.Reaction, Partials.GuildScheduledEvent, Partials.User, Partials.ThreadMember] });
 
@@ -55,4 +55,4 @@ client.on("ready", async () => {
     console.log(`${client.user.username} ready`);
 })
 
-client.login(token)
+client.login(process.env.BOT_TOKEN)

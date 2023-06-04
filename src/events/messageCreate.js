@@ -1,4 +1,4 @@
-import config from "../config.js";
+import 'dotenv/config'
 import { Collection } from "discord.js";
 import ms from "ms";
 const cooldown = new Collection()
@@ -7,7 +7,7 @@ export default {
     name: 'messageCreate',
     execute: async (message) => {
         let client = message.client;
-        let prefix = config.prefix
+        let prefix = process.env.PREFIX
 
         if (message.author.bot) return;
         if (message.channel.type === 'dm') return;
